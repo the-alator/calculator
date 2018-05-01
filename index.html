@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>TaxiCalc ROY</title>
+        <link rel="stylesheet" href="index.css">
+    </head>
+    <body>
+        <select id="test">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+        </select>
+
+        <div id="mainContainer">
+            <div class="div-title">
+                <span class="title">TaxiLaunch</span>
+            </div>
+            <div id="innerContainer">
+                <div id="map"></div>
+                <div id="someText">sadasds</div>
+            </div>
+        </div>
+        <script src="index.js"> </script>
+        <script>
+            if(document.documentElement.clientWidth < 630)
+                document.getElementById("mainContainer").style.width = (document.documentElement.clientWidth - document.documentElement.clientWidth / 25) + "px";
+            else
+                document.getElementById("mainContainer").style.width = "614px";
+            if(document.documentElement.clientHeight < 630)
+                document.getElementById("mainContainer").style.height = (document.documentElement.clientHeight - document.documentElement.clientHeight / 25) + "px";
+            else
+                document.getElementById("mainContainer").style.height = "611px";
+
+            function mapApiLoaded(){
+                console.log(123);
+                let map = new google.maps.Map(document.getElementById('map'), {
+                    center: {lat: 50.050586, lng: 36.332552},
+                    zoom: 16
+                });
+            }
+
+        </script>
+
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-oP-CtwxnCTbpAEekGevXEujfbvtUYMQ&callback=mapApiLoaded">
+        </script>
+
+
+    </body>
+</html>
