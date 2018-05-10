@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Тег option, атрибут label</title>
+</head>
+<body>
+<form>
+    <p>Кто написал полонез Огинского?</p>
+
+    <select name="question">
+        <!--<option label="Бах" value="1">Иоганн Себастьян Бах</option>-->
+        <!--<option label="Бетховен" value="2">Людвиг ван Бетховен</option>-->
+        <!--<option label="Шопен" value="3">Фредерик Шопен</option>-->
+        <!--<option label="Огинский" value="4">Михаил Клеофас Огинский</option>-->
+    </select>
+    <p><input type="submit" value="Отправить" onclick="performForm(this.form)"></p>
+</form>
+<script>
+    // var oOption = document.createElement("option");
+    // oOption.innerHTML = "tratata";
+    // oOption.value = "myval";
+    // oOption.id = "idopt";
+    // oOption.testtratata = "213";
+
+    let form = document.getElementsByTagName("form")[0];
+    let list = form.getElementsByTagName("select")[0];
+
+
+    // list.appendChild(oOption);
+    for(let a = 0; a < list.children.length; a++)
+        console.log(list.children[a].value);
+    function performForm(f){
+        for(var o of f.question.options)
+            if(o.selected)
+                alert(o.innerHTML);
+    }
+    // console.log(document.getElementById("idopt").testtratata);
+</script>
+</body>
+</html>
