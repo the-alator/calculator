@@ -1,26 +1,32 @@
-brandsList = [createBrand(0, "BMW"),createBrand(1, "BMW"),createBrand(1, "BMW"),createBrand(1, "BMW"),
+brandsList = [createBrand(0, "BMW"),createBrand(2, "Daewoo"),createBrand(3, "Kia"),createBrand(1, "BMW"),
                     createBrand(1, "BMW"),createBrand(1, "BMW"),createBrand(1, "BMW"),createBrand(1, "BMW"),];
 modelsList = [
     [
-        createModel(0,,,,,[]), createModel(1,,,,,[]), createModel(2,,,,,[]), createModel(3,,,,,[])
+        createModel(0,"BMW 4 Series F33",60,5,1,1,0,0,[CS[0],CS[1],CS[5]]), createModel(1,"BMW M1",70,4,1,0,0,0,[CS[0],CS[1],CS[5]]),
+        createModel(2,"BMW 4 Series Gran Coupe F36",70,4,1,0,0,0,[CS[0],CS[1],CS[5]]), createModel(3,"BMW X2 F39",55,5,1,0,1,0,[CS[0],CS[1],CS[5]])
     ],[
-        createModel(0,,,,,[]), createModel(1,,,,,[]), createModel(2,,,,,[]), createModel(3,,,,,[])
+        createModel(0,"Daewoo Lanos 1.4  (KLAT)",30,3,0,0,0,0,[CS[9],CS[6],CS[5]])
     ],[
-        createModel(0,,,,,[]), createModel(1,,,,,[]), createModel(2,,,,,[]), createModel(3,,,,,[])
-    ],[
-        createModel(0,,,,,[]), createModel(1,,,,,[]), createModel(2,,,,,[]), createModel(3,,,,,[])
-    ],[
-        createModel(0,,,,,[]), createModel(1,,,,,[]), createModel(2,,,,,[]), createModel(3,,,,,[])
-    ],[
-        createModel(0,,,,,[]), createModel(1,,,,,[]), createModel(2,,,,,[]), createModel(3,,,,,[])
-    ],[
-        createModel(0,,,,,[]), createModel(1,,,,,[]), createModel(2,,,,,[]), createModel(3,,,,,[])
-    ],[
-        createModel(0,,,,,[]), createModel(1,,,,,[]), createModel(2,,,,,[]), createModel(3,,,,,[])
-    ]
-];
+        createModel(0,"Kia Sorento New FL 2.2D АT",40,4,1,0,0,1,[CS[3],CS[4],CS[5]])]
+//     ,[
+//         createModel(0,,,,,,,[]), createModel(1,,,,,,,[]),
+//         createModel(2,,,,,,,[]), createModel(3,,,,,,,[])
+//     ],[
+//         createModel(0,,,,,,,[]), createModel(1,,,,,,,[]),
+//         createModel(2,,,,,,,[]), createModel(3,,,,,,,[])
+//     ],[
+//         createModel(0,,,,,,,[]), createModel(1,,,,,,,[]),
+//         createModel(2,,,,,,,[]), createModel(3,,,,,,,[])
+//     ],[
+//         createModel(0,,,,,,,[]), createModel(1,,,,,,,[]),
+//         createModel(2,,,,,,,[]), createModel(3,,,,,,,[])
+//     ],[
+//         createModel(0,,,,,,,[]), createModel(1,,,,,,,[]),
+//         createModel(2,,,,,,,[]), createModel(3,,,,,,,[])
+//     ]
+    ];
 
-const colors = ["yellow","red","blue","green","black","white","brown","pink","grey","silver"];
+const CS = ["yellow","red","blue","green","black","white","brown","pink","grey","silver"];
 function createBrand(id, title){
     let obj = document.createElement("option");
     obj.value = id;
@@ -28,7 +34,7 @@ function createBrand(id, title){
     obj.imagePath = title + ".png";
     return obj;
 }
-function createModel(id, title, startPrice, kilometerPrice, conditioner, cabriolet,color){
+function createModel(id, title, startPrice, kilometerPrice, conditioner, cabriolet, trapdoor, seats, color){
     let obj = document.createElement("option");
     obj.value = id;
     obj.innerHTML = title;
@@ -37,6 +43,8 @@ function createModel(id, title, startPrice, kilometerPrice, conditioner, cabriol
     obj.conditioner = conditioner;
     obj.cabriolet = cabriolet;
     obj.color = color;
+    obj.trapdoor = trapdoor;
+    obj.seats = seats;
     return obj;
 }
 
