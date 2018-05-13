@@ -6,21 +6,16 @@
 
 
         <!--jquery-->
-        <!--<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>-->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>-->
-        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>-->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
         <!--bootstrap-->
-        <!--<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">-->
-        <!--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>-->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!--//////////////////////// bootstrap-select-->
         <!--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">-->
 
-
-        <!--<script src="dist/js/bootstrap-select.js"></script>-->
-        <!--<link rel="stylesheet" href="dist/css/bootstrap-select.css">-->
         <link rel="stylesheet" href="index.css">
 
     </head>
@@ -49,42 +44,47 @@
                     <!--</label>-->
                 <!--</div>-->
                 <div class="row form-group">
-                    <div class="col-7">
+                    <div class="col-8">
                         <select id="1" class="form-control">
-
+                            <!--<option value="tratata" class="dummyOpt">test</option>-->
                         </select>
                     </div>
-                    <div class="col-5">
+                    <div class="col-4">
                         <!--<label for="1">test</label>-->
                         <span>Brand</span>
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-7">
+                    <div class="col-8">
                         <select id="2" class="form-control">
 
                         </select>
                     </div>
-                    <div class="col-5">
+                    <div class="col-4">
                         <span>Model</span>
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-7">
+                    <div class="col-8">
                         <select id="3" class="form-control">
-
                         </select>
                     </div>
-                    <div class="col-5">
+                    <div class="col-4">
                         <span>Color</span>
                     </div>
                 </div>
                 <div class="row form-group">
-                    <div class="col-7">
-                        <select id="4" class="form-control">
-                        </select>
+                    <div class="col-8 nowAndDT">
+                        <!--<div class="container">-->
+                            <!--<div class="col-10">-->
+                                <input type="datetime-local" id="dtform" class="form-control">
+                            <!--</div>-->
+                            <!--<div class="col-2">-->
+                                <button id="dtNow">Now</button>
+                            <!--</div>-->
+                        <!--</div>-->
                     </div>
-                    <div class="col-5">
+                    <div class="col-4">
                         <span>Dispatch time</span>
                     </div>
                 </div>
@@ -112,10 +112,10 @@
                                 </div>
                             </div>
                             <div class="row form-group heap">
-                                <button class="greenToggles" value="Trapdoor" >Trapdoor</button>
-                                <button class="greenToggles" value="Conditioner">Conditioner</button>
-                                <button class="greenToggles" value="Cabriolet">Cabriolet</button>
-                                <button class="greenToggles" value="4+ seats">4+ seats</button>
+                                <button class="greenToggles" value="trapdoor" >Trapdoor</button>
+                                <button class="greenToggles" value="conditioner">Conditioner</button>
+                                <button class="greenToggles" value="cabriolet">Cabriolet</button>
+                                <button class="greenToggles" value="seats">4+ seats</button>
                             </div>
                         </div>
 
@@ -155,7 +155,7 @@
                         <img src="maps.png"/>
                     </div>
                     <div class="col-2 orderDiv">
-                        <button class="btn btn-info" value="tratata">Order</button>
+                        <button class="btn btn-info" value="tratata" id="order">Order</button>
                     </div>
                 </div>
 
@@ -167,18 +167,25 @@
                     <!--</div>-->
 
                 <!--</div>-->
+                <!--</form>-->
             </div>
             <div class="footer">
-                <div class="row">
-                    <div class="resultPrice"></div>
-                    <div class="partPrice"></div>
-                    <div class="partPrice"></div>
-                    <div class="partPrice"></div>
-                    <div class="partPrice"></div>
+                <div class="row" id="footerRow">
+                    <div class="partPrice" id="resultPrice"></div>
+                    <!--<div class="sign"></div>-->
+                    <!--<div class="partPrice"></div>-->
+                    <!--<div class="sign"></div>-->
+                    <!--<div class="partPrice"></div>-->
+                    <!--<div class="sign"></div>-->
+                    <!--<div class="partPrice"></div>-->
+                    <!--<div class="sign"></div>-->
+                    <!--<div class="partPrice"></div>-->
+                    <!--<div class="sign"></div>-->
+                    <!--<div class="partPrice" id="partPrice"></div>-->
                 </div>
             </div>
         </div>
-        <div id="out"></div>
+
         <script>
             if(document.documentElement.clientWidth < 630)
                 document.getElementById("mainContainer").style.width = (document.documentElement.clientWidth - document.documentElement.clientWidth / 25) + "px";
