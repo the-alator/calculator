@@ -17,7 +17,8 @@ let filter = [];
 
 let priceView = new PriceView();
 
-
+let lastModel;
+let lastDate;
 
 // document.getElementById("order").addEventListener("click",function(e){
 //    console.log(document.getElementById("dt").defaultValue);
@@ -36,6 +37,8 @@ let priceView = new PriceView();
 // console.log(f.offsetWidth);
 // document.getElementById("resultPrice").style.left = 500 + "px";
 
+// let d = new Date("2015-09-03T24:49");
+
 init();
 
 // testAnimation();
@@ -47,7 +50,7 @@ function testAnimation() {
     let iId = setInterval(move,200);
 
     function move(){
-        console.log(999);
+        // console.log(999);
         pos += step;
         elem.style.left = pos + "px";
         // elem.style.top = pos + "px";
@@ -58,6 +61,9 @@ function refreshModels(brandChanged){
     let newModels = getFilteredModels(currentModels);
     if(!brandChanged && newModels.length === modelsDOM.options.length)
         return;
+    if(lastModel !== undefined)
+        priceView.changeData(-lastModel.startPrice, priceView.model);
+    lastModel = undefined;
     clearListDOM(colorsDOM);
     clearListDOM(modelsDOM);
     for(let a = 0; a < newModels.length; a++) {
@@ -66,9 +72,7 @@ function refreshModels(brandChanged){
         modelsDOM.selectedIndex = 0;
     }
 }
-function filterModels(){
 
-}
 function getFilteredModels(chosenBrand){
     let newModels = [getDummyOptionTag()];
     console.log("1");
@@ -128,10 +132,12 @@ function init(){
                 this.style.backgroundColor = "#ffdf00";
                 this.style.color = "white";
                 this.pressed = true;
+                priceView.changeData(this.value, priceView.services);
             } else {
                 this.style.backgroundColor = "white";
                 this.style.color = "#ffdf00";
                 this.pressed = false;
+                priceView.changeData(-this.value, priceView.services);
             }
 
         })
@@ -149,14 +155,24 @@ function init(){
             dateTimeForm.disabled = true;
             dateTimeForm.min = getCurrentDateForInput();
             dateTimeForm.value = getCurrentDateForInput();
+
+            priceView.changeData(-getDateTimePrice(lastDate), priceView.time);
+            lastDate = new Date(dateTimeForm.value);
+            priceView.changeData(getDateTimePrice(new Date(dateTimeForm.value)), priceView.time);
         }
     });
     dateTimeForm.disabled = true;
     dateTimeForm.min = getCurrentDateForInput();
     dateTimeForm.value = getCurrentDateForInput();
-    // dateTimeForm.addEventListener("focusout",function(e){
-    //     dateTimeForm
-    // });
+    lastDate = new Date(dateTimeForm.value);
+    dateTimeForm.addEventListener("focusout",function(e){
+        priceView.changeData(-getDateTimePrice(lastDate), priceView.time);
+        lastDate = new Date(dateTimeForm.value);
+        priceView.changeData(getDateTimePrice(new Date(dateTimeForm.value)), priceView.time);
+    });
+    dateTimeForm.addEventListener("focusin",function(e){
+        // priceView.changeData(getDateTimePrice(new Date(dateTimeForm.value)), priceView.time);
+    });
 
     brandsDOM.addEventListener("change", function(e){
         currentModels = brandsDOM.selectedIndex - 1;
@@ -164,6 +180,10 @@ function init(){
 
     });
     modelsDOM.addEventListener("change", function(e){
+        if(lastModel !== undefined)
+            priceView.changeData(-lastModel.startPrice, priceView.model);
+        lastModel = modelsDOM.options[modelsDOM.selectedIndex];
+        priceView.changeData(lastModel.startPrice, priceView.model);
         clearListDOM(colorsDOM);
         colorsDOM.appendChild(getDummyOptionTag());
         for(let a = 0; a < modelsDOM.options[modelsDOM.selectedIndex].color.length; a++)
@@ -171,117 +191,6 @@ function init(){
         colorsDOM.selectedIndex = 0;
 
     });
-
-}
-function getDummyOptionTag(){
-    let dummyOpt = document.createElement("option");
-    dummyOpt.innerText = "Not selected";
-    dummyOpt.classList.add("dummyOpt");
-    return dummyOpt;
-}
-function clearListDOM(listDOM){
-    while(listDOM.options.length)
-        listDOM.options.remove(0);
-}
-//"2015-09-03T11:49"
-function getCurrentDateForInput() {
-    let date = new Date();
-    return date.getFullYear() + "-" + zeroIsImportant(date.getMonth()) + "-" + zeroIsImportant(date.getDate()) + "T" +
-        zeroIsImportant(date.getHours()) + ":" + zeroIsImportant(date.getMinutes());
-}
-function zeroIsImportant(number){
-    number = number + "";
-    if(number.length === 1)
-        number = "0" + number;
-    return number;
 }
 
-function PriceView(){
-    this.container = document.getElementById("footerRow");
-    const model = 0, path = 1, time = 2, services = 3, tips = 4;
-    const signW = this.container.offsetWidth * 0.02;
-    const fieldW = this.container.offsetWidth * 0.15;
-    const startPoint = signW + fieldW;
-    this.animationIntId = -1;
 
-    this.resultF = document.getElementById("resultPrice");
-    //lower is higher
-    // this.visibleFields = [];
-    this.fieldsArr = [];
-
-    this.insertField = function(priority, value, message){
-        let newField = document.createElement("div");
-        newField.priority = priority;
-        newField.value = value;
-        newField.message = message;
-        newField.classList.add("partPrice");
-        newField.currentPos = this.countLefts(priority - 1);
-        newField.currentX = startPoint * (newField.currentPos + 1);
-        newField.style.left = newField.currentX + "px";
-        newField.getAppropriateX = function(){
-            return startPoint * (this.currentPos + 1);
-        }
-
-        this.fieldsArr[priority] = newField;
-        this.changeRights(priority + 1, 1);
-        animation();
-        this.container.insertBefore(newField, this.getFirstRighter(priority + 1));
-        // for(let i = 0; i < this.fieldsArr.length; i++){
-        //
-        // }
-    }
-    this.getFirstRighter = function(from){
-        for(let i = from; i < this.fieldsArr.length; i++){
-            if(this.fieldsArr[i] !== undefined)
-                return this.fieldsArr[i];
-        }
-    }
-    this.removeField = function(priority){
-        this.container.removeChild(this.fieldsArr[priority]);
-        this.fieldsArr[priority] = undefined;
-        this.changeRights(priority + 1, -1);
-        animation();
-    }
-    this.changeRights = function(from, value){
-        for(let i = from; i < this.fieldsArr.length; i++){
-            if(this.fieldsArr[i] !== undefined)
-                this.fieldsArr[i].currentPos += value;
-        }
-    }
-    this.countLefts = function(from){
-        let counter = 0;
-        for(let i = from; i >= 0; i++){
-            if(this.fieldsArr[i] !== undefined)
-                counter++;
-        }
-        return counter;
-    }
-    function animation(){
-        if(this.animationIntId !== -1) {
-            clearInterval(this.animationIntId);
-            this.animationIntId = -1;
-        }
-        let animationList = [];
-        for(let i = 0; i < this.fieldsArr.length; i++)
-            if(this.fieldsArr[i].getAppropriateX() !== this.fieldsArr[i].currentX)
-                animationList.push(this.fieldsArr[i]);
-        if(animationList.length === 0)
-            return;
-        let direction;
-        if(animationList[0].getAppropriateX() - animationList[0].currentX > 0)
-            direction = 1;
-        else
-            direction = -1;
-        this.animationIntId = setInterval(move, 1);
-        console.log("animationIntId " + this.animationIntId);
-
-        function move(){
-            for(let i = 0; i < animationList.length; i++) {
-                animationList[i].currentX += direction;
-                animationList[i].style.left = animationList[i].currentX + "px";
-            }
-        }
-    }
-}
-
-//AIzaSyC-oP-CtwxnCTbpAEekGevXEujfbvtUYMQ
