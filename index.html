@@ -31,133 +31,117 @@
                     <span class="title-lowCase">ystem</span>
                 </div>
             </div>
-            <div id="innerContainer" class="container">
-                <!--<div class="btn-group btn-group-toggle" data-toggle="buttons">-->
-                    <!--<label class="btn btn-primary">-->
-                        <!--<input type="radio" name="options" id="option1" autocomplete="off" checked> Active-->
-                    <!--</label>-->
-                    <!--<label class="btn btn-primary">-->
-                        <!--<input type="radio" name="options" id="option2" autocomplete="off"> Radio-->
-                    <!--</label>-->
-                    <!--<label class="btn btn-primary">-->
-                        <!--<input type="radio" name="options" id="option3" autocomplete="off"> Radio-->
-                    <!--</label>-->
+            <div class="container" id="innerContainer">
+                <div id="mainContent">
+                    <div class="row form-group">
+                        <div class="col-8">
+                            <select id="1" class="form-control">
+                                <!--<option value="tratata" class="dummyOpt">test</option>-->
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <!--<label for="1">test</label>-->
+                            <span>Brand</span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-8">
+                            <select id="2" class="form-control">
+
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <span>Model</span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-8">
+                            <select id="3" class="form-control">
+                            </select>
+                        </div>
+                        <div class="col-4">
+                            <span>Color</span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-8 nowAndDT">
+                            <!--<div class="container">-->
+                                <!--<div class="col-10">-->
+                                    <input type="datetime-local" id="dtform" class="form-control">
+                                <!--</div>-->
+                                <!--<div class="col-2">-->
+                                    <button id="dtNow">Now</button>
+                                <!--</div>-->
+                            <!--</div>-->
+                        </div>
+                        <div class="col-4">
+                            <span>Dispatch time</span>
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-6">
+                            <div class="container" id="service">
+                                <div class="row">
+                                    <div class="col-12 heapTitle" >
+                                        <span>service</span>
+                                    </div>
+                                </div>
+                                <div class="row form-group heap">
+                                    <button class="yellowToggles" value="20">Massage seat</button>
+                                    <button class="yellowToggles" value="15">WI-FI</button>
+                                    <button class="yellowToggles" value="30">Talkative driver</button>
+                                    <button class="yellowToggles" value="20">Immediately arrive</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="container" id="filter">
+                                <div class="row">
+                                    <div class="col-12 heapTitle" >
+                                        <span>filter</span>
+                                    </div>
+                                </div>
+                                <div class="row form-group heap">
+                                    <button class="greenToggles" value="trapdoor" >Trapdoor</button>
+                                    <button class="greenToggles" value="conditioner">Conditioner</button>
+                                    <button class="greenToggles" value="cabriolet">Cabriolet</button>
+                                    <button class="greenToggles" value="seats">4+ seats</button>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="row form-group">
+                        <div class="col-6 routeTitle">
+                            <div>Choose route</div>
+                            <div class="routes container">
+                                <div class="row">
+                                    <div class="col-2">
+                                        <div>from:</div>
+                                    </div>
+                                    <div class="col-10">
+
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-2">
+                                        <div>to:</div>
+                                    </div>
+                                    <div class="col-10">
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-4">
+                            <img src="maps.png" id="mapButton"/>
+                        </div>
+                        <div class="col-2 orderDiv">
+                            <button class="btn btn-info" value="tratata" id="order">Order</button>
+                        </div>
+                    </div>
+
                 <!--</div>-->
-                <div class="row form-group">
-                    <div class="col-8">
-                        <select id="1" class="form-control">
-                            <!--<option value="tratata" class="dummyOpt">test</option>-->
-                        </select>
-                    </div>
-                    <div class="col-4">
-                        <!--<label for="1">test</label>-->
-                        <span>Brand</span>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-8">
-                        <select id="2" class="form-control">
-
-                        </select>
-                    </div>
-                    <div class="col-4">
-                        <span>Model</span>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-8">
-                        <select id="3" class="form-control">
-                        </select>
-                    </div>
-                    <div class="col-4">
-                        <span>Color</span>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-8 nowAndDT">
-                        <!--<div class="container">-->
-                            <!--<div class="col-10">-->
-                                <input type="datetime-local" id="dtform" class="form-control">
-                            <!--</div>-->
-                            <!--<div class="col-2">-->
-                                <button id="dtNow">Now</button>
-                            <!--</div>-->
-                        <!--</div>-->
-                    </div>
-                    <div class="col-4">
-                        <span>Dispatch time</span>
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-6">
-                        <div class="container" id="service">
-                            <div class="row">
-                                <div class="col-12 heapTitle" >
-                                    <span>service</span>
-                                </div>
-                            </div>
-                            <div class="row form-group heap">
-                                <button class="yellowToggles" value="20">Massage seat</button>
-                                <button class="yellowToggles" value="15">WI-FI</button>
-                                <button class="yellowToggles" value="30">Talkative driver</button>
-                                <button class="yellowToggles" value="20">Immediately arrive</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="container" id="filter">
-                            <div class="row">
-                                <div class="col-12 heapTitle" >
-                                    <span>filter</span>
-                                </div>
-                            </div>
-                            <div class="row form-group heap">
-                                <button class="greenToggles" value="trapdoor" >Trapdoor</button>
-                                <button class="greenToggles" value="conditioner">Conditioner</button>
-                                <button class="greenToggles" value="cabriolet">Cabriolet</button>
-                                <button class="greenToggles" value="seats">4+ seats</button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-                <div class="row form-group">
-                    <div class="col-6 routeTitle">
-                        <div>Choose route</div>
-                        <div class="routes container">
-                            <div class="row">
-                                <div class="col-2">
-                                    <div>from:</div>
-                                </div>
-                                <div class="col-10">
-
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-2">
-                                    <div>to:</div>
-                                </div>
-                                <div class="col-10">
-
-                                </div>
-                            </div>
-                            <!--<div class="routePathTitles">-->
-                                <!--<div class="routePath">from: </div>-->
-                                <!--<div class="routePath">to: </div>-->
-                            <!--</div>-->
-                            <!--<div class="routePathResults">-->
-                                <!--<div class="routePath">from: </div>-->
-                                <!--<div class="routePath">to: </div>-->
-                            <!--</div>-->
-                        </div>
-                    </div>
-                    <div class="col-4">
-                        <img src="maps.png"/>
-                    </div>
-                    <div class="col-2 orderDiv">
-                        <button class="btn btn-info" value="tratata" id="order">Order</button>
-                    </div>
-                </div>
 
                 <!--<div class="container">-->
 
@@ -166,9 +150,11 @@
                         <!--<p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>-->
                     <!--</div>-->
 
-                <!--</div>-->
+                </div>
                 <!--</form>-->
+                <div id="map"></div>
             </div>
+
             <div class="footer">
                 <div class="row" id="footerRow">
                     <div class="partPrice" id="resultPrice"></div>
@@ -195,15 +181,6 @@
                 document.getElementById("mainContainer").style.height = (document.documentElement.clientHeight - document.documentElement.clientHeight / 25) + "px";
             else
                 document.getElementById("mainContainer").style.height = "611px";
-
-            function mapApiLoaded(){
-                // console.log(123);
-                // let map = new google.maps.Map(document.getElementById('map'), {
-                //     center: {lat: 50.050586, lng: 36.332552},
-                //     zoom: 16
-                // });
-
-            }
         </script>
         <script src="utils.js"> </script>
         <script src="dataFactory.js"> </script>
@@ -211,6 +188,7 @@
         <script src="index.js"> </script>
 
         <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC-oP-CtwxnCTbpAEekGevXEujfbvtUYMQ&callback=mapApiLoaded"></script>
+        <script src="map.js"></script>
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>-->
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/i18n/defaults-*.min.js"></script>-->
 

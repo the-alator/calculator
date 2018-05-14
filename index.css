@@ -2,7 +2,7 @@ body, html{
     height:95%;
     /*padding:1%;*/
 }
-#innerContainer > .row{
+#innerContainer > * > .row{
     text-align: left;
     /*vertical-align: text-bottom;*/
     font-size: 1.5em;
@@ -41,7 +41,7 @@ body, html{
     /*background-clip:content-box;*/
     margin-top: 1%;
 }
-#innerContainer{
+#innerContainer, #map{
     background: white;
     width:99%;
     border: 1px solid green;
@@ -177,4 +177,30 @@ body, html{
     color: black;
     border: 2px solid gray;
     border-radius: 4px;
+}
+/*#mainContent{*/
+    /*font-size: initial;*/
+/*}*/
+#controlDiv{
+    padding:0.5%;
+    width:400px;
+    font-size:0.5em;
+    border:1px solid gray;
+    border-radius: 10px;
+    display:flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+}
+#controlDiv .form-control{
+    height:30px;
+}
+#controlDiv .row{
+    margin-bottom: 5px;
+}
+#controlDiv .col-3{
+    display:flex;
+    /*justify-content: space-around;*/
+    align-items: center;
 }

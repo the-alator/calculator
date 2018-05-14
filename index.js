@@ -11,6 +11,7 @@ let filterButtonsDOM = document.getElementsByClassName("greenToggles");
 let serviceButtonsDOM = document.getElementsByClassName("yellowToggles");
 let dateTimeNowButton = document.getElementById("dtNow");
 let dateTimeForm = document.getElementById("dtform");
+let mapButton = document.getElementById("mapButton");
 
 let currentModels;
 let filter = [];
@@ -189,8 +190,15 @@ function init(){
         for(let a = 0; a < modelsDOM.options[modelsDOM.selectedIndex].color.length; a++)
             colorsDOM.appendChild(modelsDOM.options[modelsDOM.selectedIndex].color[a]);
         colorsDOM.selectedIndex = 0;
-
     });
+
+    mapButton.addEventListener("click", function(){
+        document.getElementById("mainContent").style.display = "none";
+        document.getElementById("innerContainer").classList.remove("container"); //TODO return container back
+        document.getElementById("map").style.display = "block";
+        startLoading();
+    });
+    document.getElementById("map").style.display = "none";
 }
 
 
